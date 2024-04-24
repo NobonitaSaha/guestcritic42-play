@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Savor Unforgettable Moments in Austria's Hotel. Austria is home to some of the world's most iconic hotels, each offering a unique blend of luxury, comfort, and unforgettable experiences. Explore the Austria cities and hotels.">
-        <meta name="keywords" content="Best Austria hotels, Best Austria resorts, Austria hotel booking, Top Austria Hotels">
+        <meta name="keywords" content="Best Austria Casino hotels, Best Austria Casino resorts, Austria Casino hotel booking, Top Austria Casino Hotels">
 
 
         <!-- ========== Title ========= -->
@@ -29,6 +29,503 @@
 
         <!-- ============= Icon Link ============= -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+        <!-- ====================== Cookie PopUp Start ========================== -->
+        <div class="cookie-overlay show-overlay"></div>
+        <div class="cookie-overlay-2 show-overlay-2"></div>
+        <div class="cookie-popup" id="cookiePopup"> 
+            <!-- Close icon outside the popup -->
+            <div class="close-icon" onclick="closePopup()">&times;</div>
+            <div class="cookie-description">
+                <div class="cookie-text">
+                    <h3>Select your country preferences</h3>
+                    <p>We’ve noticed you’re accessing the Austria website. Please update your country preferences to see content specific to your location.</p>
+                </div>
+            </div>
+
+            <div id="country-selector">
+                <button id="country-button">
+                    <span id="country-name">Austria</span>
+                    <div>
+                        <img src="images/at.08287c75.png" alt="Austria flag">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </button>
+
+                <ul id="country-list">
+                    <li class="country-item" data-value="us">
+                        <div class="country-dropdown-select">
+                            <div>
+                                <span>United States</span>
+                            </div>
+                            <div class="country-flag">
+                                <img src="images/us.254e9d37.png" alt="United States flag">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="country-item" data-value="us">
+                        <div class="country-dropdown-select">
+                            <div>
+                                <span>Germany</span>
+                            </div>
+                            <div class="country-flag">
+                                <img src="images/de.8a11a358.png" alt="Germany flag">
+                            </div>
+                        </div>
+                    </li>
+
+                    
+                    <li class="country-item" data-value="us">
+                        <div class="country-dropdown-select">
+                            <div>
+                                <span>Australia</span>
+                            </div>
+                            <div class="country-flag">
+                                <img src="images/au.9917e5a8.png" alt="Australia flag">
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Add more options here -->
+                </ul>
+            </div>
+
+            <div class="cookie-btn" id="confirm-container"> <!-- Updated: Added ID -->
+                <div class="cookie-double-btn">
+                    <button onclick="acceptCookies()" class="cookie-accept">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+       
+
+
+        <style>
+         /* ---------------------------------- 
+            Cookie Popup CSS Start 
+         ------------------------------------- */
+        #confirm-container {
+            transition: all 0.3s ease; 
+        }
+
+        #confirm-container.moved-down {
+            margin-top: 140px;
+        }
+
+        .close-icon {
+            position: fixed;
+            top: 0px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 38px;
+            color: black;
+            z-index: 999999;
+        }
+
+        .close-icon:hover {
+            opacity: .8;
+        }
+    
+        .cookie-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 30px 20px;
+            z-index: 1000;
+            color: #3b3e4a;
+            border-radius: 8px;
+            box-shadow: 0px 0px 40px 0px #ffffff61;
+            overflow-y: auto; 
+            max-height: calc(100vh - 100px); 
+        }
+
+        .cookie-description {
+            margin-bottom: 30px; 
+        }
+
+        .cookie-popup.show {
+            display: block;
+            max-width: 550px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .cookie-text > h3 {
+            color: #2e2e2e;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 10px 0px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cookie-text > p {
+            font-size: 15px;
+            line-height: 28px;
+            font-style: normal;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin: 20px 0px 10px 0px;
+            color: #444444;
+        }
+
+        .cookie-double-btn button {
+            font-size: 16px;
+            padding: 8px 50px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            border: 2px solid rgb(124, 9, 66);
+            color: #ffffff;
+            outline: 0px;
+            margin: 20px 0px 0px 0px;
+            font-family: 'Montserrat', sans-serif;
+            background: rgb(124, 9, 66);
+            width: 250px;
+        }
+
+        button.cookie-accept:hover {
+            opacity: .8;
+        }
+
+        button.cookie-cancel:hover {
+            opacity: .8;
+        }
+
+        .cookie-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(#000000c7, #000000c7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 999;
+            display: none;
+        }
+
+        .cookie-overlay-2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(#000000c7, #000000c7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 999;
+            display: none;
+        }
+
+        .show-overlay {
+            display: block;
+        }
+
+        .show-overlay-2 {
+            display: block;
+        }
+
+        #country-selector {
+            position: relative;
+            padding: 5px;
+            border-radius: 4px;
+            width: 250px;
+            margin: 0 auto;
+            color: rgb(24, 26, 29);
+            border: 2px solid #444444;
+        }
+
+        #country-button {
+            background-color: transparent;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: #444444;
+            padding: 5px;
+            border-radius: 5px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            outline: none;
+            font-weight: 500;
+        }
+
+        #country-button img {
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .country-flag > img {
+            width: 24px;
+            transform: translateX(-28px);
+        }
+
+        #country-button i {
+            font-size: 17px;
+            color: #444444;
+            transform: translateY(2px);
+        }
+
+        #country-list {
+            display: none;
+            position: absolute;
+            top: 105%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 0px;
+            box-shadow: 0px 2px 4px rgb(0 0 0 / 21%);
+            z-index: 1;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #country-list .country-item {
+            padding: 8px;
+            align-items: center;
+            cursor: pointer;
+            list-style: none;
+            border-bottom: 1px solid #80808017;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: #444444;
+            font-weight: 500;
+        }
+
+        .country-dropdown-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #country-list .country-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgb(124, 9, 66); 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: .5;
+        }
+
+        @media only screen and (max-width: 600px) and (min-width: 320px) {
+            .cookie-popup.show {
+                margin: 0px 15px;
+                padding: 30px 10px;
+                left: 0;
+				position: fixed;
+				top: 50%;
+				transform: translateY(-50%);
+            }
+
+            .cookie-btn {
+               display: inline-flex;
+               flex-direction: column;
+               align-items: unset;
+               gap: 0px;
+               margin-top: 15px;
+               width: 100%;
+            }
+
+            .cookie-overlay{
+               display: none;
+            }
+
+            .cookie-double-btn button {
+               width: 100%;
+               margin: 5px 0px;
+            }
+
+            #country-selector {
+                width: 100%;
+            }
+
+            .cookie-text > h3 {
+                font-size: 20px;
+                margin: 30px 0px 10px 0px;
+                line-height: 34px;
+            }
+
+            .cookie-text > p {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+
+        @media only screen and (max-width: 850px) and (min-width: 768px) {
+            .cookie-popup.show {
+               margin: 0 auto;
+            }
+
+            .cookie-overlay-2{
+               display: none;
+            }
+        }
+         
+        @media only screen and (min-width: 1025px) {
+            .cookie-overlay-2 {
+               display: none;
+            }
+        }
+
+        /* ------------------------------------ 
+            Cookie Popup CSS End 
+        --------------------------------------- */
+        </style>
+
+        <script>
+            // Function to close the popup
+            function closePopup() {
+                var cookiePopup = document.getElementById("cookiePopup");
+                var overlay = document.querySelector(".cookie-overlay");
+                var overlay2 = document.querySelector(".cookie-overlay-2");
+                var closeIcon = document.querySelector(".close-icon");
+
+                cookiePopup.style.display = "none"; // Hide the popup
+                overlay.classList.remove("show-overlay"); // Remove the overlay class
+                overlay2.classList.remove("show-overlay-2"); // Remove the overlay class
+                closeIcon.style.display = "none"; // Hide the close icon
+            }
+
+            // Function to handle overlay click
+            function overlayClickHandler(event) {
+                // Check if the click target is the overlay or close icon
+                if (event.target.classList.contains("cookie-overlay") || event.target.classList.contains("close-icon")) {
+                    closePopup(); // Close the popup
+                }
+            }
+
+            // Add event listener to the close icon
+            document.querySelector(".close-icon").addEventListener("click", closePopup);
+
+            // Add event listener to the overlays
+            document.querySelector(".cookie-overlay").addEventListener("click", overlayClickHandler);
+            document.querySelector(".cookie-overlay-2").addEventListener("click", overlayClickHandler);
+        </script>
+
+
+        <script>
+            // ------------------- Cookie Popup JS Start -----------------------
+            document.addEventListener("DOMContentLoaded", function () {
+                if (!getCookie("acceptedCookies")) {
+                    // Load background image of the popup first
+                    document.querySelector(".cookie-overlay").classList.add("show-overlay");
+                    document.querySelector(".cookie-overlay-2").classList.add("show-overlay-2");
+                    document.getElementById("cookiePopup").classList.add("show");
+                } else {
+                    // If cookies have already been accepted, remove the popup and overlay
+                    document.querySelector(".cookie-overlay").classList.remove("show-overlay");
+                    document.querySelector(".cookie-overlay-2").classList.remove("show-overlay-2");
+                    document.getElementById("cookiePopup").classList.remove("show");
+                }
+            });
+
+            function acceptCookies() {
+            document.getElementById("cookiePopup").classList.remove("show");
+            document.querySelector(".cookie-overlay").classList.remove("show-overlay");
+            document.querySelector(".cookie-overlay-2").classList.remove("show-overlay-2");
+                setCookie("acceptedCookies", true, 30);
+
+                // Load content after accepting cookies
+                setTimeout(function () {
+                    console.log("Content uploaded after 3 seconds");
+                    // Add your code here to load website images and content
+                }, 3000);
+            }
+
+            function setCookie(name, value, days) {
+            var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+            // ------------------- Cookie Popup JS End -----------------------
+        </script>
+    
+
+        <script>
+            // JavaScript function to move the confirm button container down 100px
+            function moveConfirmButtonContainerDown() {
+                var confirmContainer = document.getElementById("confirm-container");
+                confirmContainer.classList.add("moved-down");
+            }
+
+            // Add event listener to the button
+            document.getElementById("country-button").addEventListener("click", function () {
+                // Toggle the country list visibility
+                var countryList = document.getElementById("country-list");
+                if (countryList.style.display === "block") {
+                    countryList.style.display = "none";
+                    // Move the confirm button container back to its original position
+                    var confirmContainer = document.getElementById("confirm-container");
+                    confirmContainer.classList.remove("moved-down");
+                } 
+                else {
+                    countryList.style.display = "block";
+                    // Move the confirm button container down 100px
+                    moveConfirmButtonContainerDown();
+                }
+            });
+
+            // Add event listener to the country items
+            var countryItems = document.getElementsByClassName("country-item");
+            for (var i = 0; i < countryItems.length; i++) {
+                countryItems[i].addEventListener("click", function () {
+                    // Set the button text and value
+                    var countryName = this.getElementsByTagName("span")[0].innerText;
+                    var countryValue = this.getAttribute("data-value");
+                    document.getElementById("country-name").innerText = countryName;
+
+                    // Get the flag image source
+                    var flagSrc = this.querySelector(".country-flag img").getAttribute("src");
+                    // Set the flag image source
+                    document.querySelector("#country-button img").setAttribute("src", flagSrc);
+
+                    // Hide the country list
+                    var countryList = document.getElementById("country-list");
+                    countryList.style.display = "none";
+
+                    // Move the confirm button container back to its original position
+                    var confirmContainer = document.getElementById("confirm-container");
+                    confirmContainer.classList.remove("moved-down");
+                });
+            }
+        </script>
+        <!-- ==================== Cookie PopUp End ============================== -->
     </head> 
 
 
@@ -37,8 +534,8 @@
         <section id="home" class="home-section">
             <div class="section-container">
                 <div class="banner-text">
-                    <h1>Savor Unforgettable Moments in Austria's Hotels</h1>
-                    <p>Austria is home to some of the world's most iconic hotels, each offering a unique blend of luxury, comfort, and unforgettable experiences. Explore the Austria cities and hotels.</p>
+                    <h1>Savor Unforgettable Moments in Austria's Casino Hotels</h1>
+                    <p>Austria is home to some of the world's most iconic casino hotels, each offering a unique blend of luxury, comfort, and unforgettable experiences. Explore the Austria cities and casino hotels.</p>
                     <button class="section-button">Explore More</button>
                 </div>
             </div>
@@ -98,7 +595,7 @@
         <section id="about" class="about-section">
             <div class="section-container">
                 <div class="about-description">
-                    <h2>Unexpected Joys, Celebrate Life's Best Moments With Us</h2>
+                    <h2>Discover Unexpected Joys at Our Luxury Casino Hotel Celebrate Life</h2>
                     <img src="images/heading-center-shape.png" alt="heading-center-shape photo">
                 </div>
 
@@ -112,10 +609,9 @@
                         <div class="section-description about-text">
                             <small>About us</small>
                             <h3>Our Focus on Comfort and Quality</h3>
-                            <p>Our commitment to comfort is reflected in every aspect of your stay, from the plush furnishings of our accommodations to the attentive service provided by our dedicated staff. 
+                            <p>Our commitment to comfort extends to every facet of your casino experience, from the plush furnishings of our accommodations to the attentive service provided by our dedicated staff.
                             <br><br>
-
-                            Whether you're unwinding in one of our luxurious suites, relaxing in our well-appointed common areas, or exploring the tranquil surroundings, we strive to ensure that every moment is characterized by a sense of ease and relaxation.</p>
+                            Whether you're unwinding in one of our luxurious suites, relaxing in our well-appointed common areas, or exploring the tranquil surroundings, we strive to ensure that every moment at our casino hotel is characterized by a sense of ease and relaxation. </p>
                             <button class="section-button">More Details</button>
                         </div>
                     </div>
@@ -283,7 +779,7 @@
 
                 <div class="vacation-description">
                     <img src="images/heading-center-shape.png" alt="heading-center-shape photo">
-                    <h2>Revitalize Your Soul Restful Vacations, Maximum Relaxation Guaranteed.</h2>
+                    <h2>Revitalize Your Soul at Austria Casino Hotels Restful Vacations, Maximum Relaxation Guaranteed</h2>
                     <button class="section-button">Book Now</button>
                 </div>
 
@@ -336,6 +832,20 @@
             </div>
         </section>
         <!-- ============== Spa Section End =============== -->
+
+
+        <!-- ============== Austria content Section Start ============ -->
+        <section class="bottom-context">
+            <div class="section-container">
+                <div class="bottom-text">
+                    <h2>Premier Casino Hotels in Austria 2024</h2>
+                    <p>Nestled amidst the majestic Alps, Austria's premier Casino Hotel stands as a beacon of luxury and excitement, where opulence meets the thrill of gaming. From the moment guests step into the lavish lobby adorned with crystal chandeliers and sleek marble floors, they are enveloped in an atmosphere of sophistication and anticipation. Each room and suite is meticulously designed to offer the utmost in comfort and style, providing a sanctuary of relaxation after a night of exhilarating casino action. </p>
+                    <br>
+                    <p>With a wide array of table games and slot machines, the casino floor pulsates with energy, beckoning guests to try their luck and indulge in the excitement of high-stakes gambling. Whether savoring gourmet cuisine at one of the hotel's exquisite restaurants or unwinding with a cocktail at the chic casino bar, every moment at the Austria Casino Hotel is imbued with luxury and indulgence. For those seeking ultimate pampering, the spa and wellness center offers a serene oasis, while the rooftop pool provides panoramic views of the picturesque surroundings. With impeccable service and world-class amenities, the Austria Casino Hotel promises an unforgettable escape where the allure of the casino meets the tranquility of a five-star retreat.</p>
+                </div>
+            </div>
+        </section>
+        <!-- ============== Austria Content Section End ============== -->
 
 
 

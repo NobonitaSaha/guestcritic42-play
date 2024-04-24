@@ -623,6 +623,45 @@ img.vac-shape-2 {
 
 
 
+/* -----------------------
+  Context Start
+-------------------------- */
+.bottom-context {
+  padding: 50px 0px;
+}
+
+.bottom-text{
+  width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bottom-text > h2{
+  color: rgb(124, 9, 66);
+  font-family: "Playfair Display", serif;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 70px;
+  text-transform: uppercase;
+  margin: 15px 0px 30px 0px;
+}
+
+.bottom-text > p {
+  color: #8d8585;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 15px 0px 0px 0px;
+}
+/* -----------------------
+  Context End
+-------------------------- */
+
+
+
 /* ------------------------
   Footer Start
 -------------------------- */
