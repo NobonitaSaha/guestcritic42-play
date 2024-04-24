@@ -128,7 +128,7 @@
     }
 
     .section-description > small {
-        letter-spacing: 14px;
+        letter-spacing: 3px;
     }
     /* ------------- About End ----------- */
 
@@ -318,9 +318,10 @@
         width: 100%;
     }
 
-    .bottom-text > h2{
+    .bottom-text > h2 {
         font-size: 32px;
-        line-height: 45px;
+        line-height: 50px;
+        width: 100%;
     }
 
 
@@ -591,6 +592,20 @@
         height: auto;
     }
     /* --------------- Spa End ------------- */
+    
+    
+    /* ------------ Bottom Context ------------- */
+    .bottom-context {
+        padding: 20px 0px 40px 0px;
+    }
+    
+    .bottom-text{
+        width: 100%;
+    }
+
+    .bottom-text > h2 {
+        width: 100%;
+    }
 
 
 
@@ -709,6 +724,16 @@
         padding: 40px 10px;
     }
     /* ---------- Vacation End ----------- */
+
+
+    /* ------------ Bottom Context ------------- */
+    .bottom-text{
+        width: 100%;
+    }
+
+    .bottom-text > h2 {
+        width: 100%;
+    }
 
     
 

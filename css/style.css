@@ -38,27 +38,28 @@ button.section-button {
   letter-spacing: 0.4px;
 }
 
-.section-description > small{
-  color:  #AC6231;
+.section-description > small {
+  color: #AC6231;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 18px;
+  line-height: 26px;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 .section-description > h3 {
   color: rgb(124, 9, 66);
   font-family: "Playfair Display", serif;
-  font-size: 45px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 400;
-  line-height: 70px;
+  line-height: 60px;
   text-transform: uppercase;
   margin: 15px 0px;
+  word-spacing: 1px;
 }
 
 .section-description > p {
@@ -346,7 +347,7 @@ img.right-02 {
 }
 
 .title-left-part {
-  width: 650px;
+  width: 750px;
 }
 
 .room-content{
@@ -631,7 +632,7 @@ img.vac-shape-2 {
 }
 
 .bottom-text{
-  width: 1100px;
+  width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
@@ -644,7 +645,8 @@ img.vac-shape-2 {
   font-weight: 400;
   line-height: 70px;
   text-transform: uppercase;
-  margin: 15px 0px 30px 0px;
+  margin: 25px auto;
+  width: 900px;
 }
 
 .bottom-text > p {
@@ -668,7 +670,7 @@ img.vac-shape-2 {
 .footer-section {
   margin-top: 50px;
   background: #530C36;
-  padding: 55px 360px;
+  padding: 60px 360px;
 }
 
 .newsletter{
